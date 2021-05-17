@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.image-slider {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  border-radius: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiding {
+  width: 0px;
+}
+
+.image-box {
+  position: relative;
+  height: 600px;
+  width: 600px;
+  border-radius: 20%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.image-slider .showing {
+  display: flex;
+  height: 500px;
+  width: 500px;
+  border-radius: 20%;
+  animation: fadeIn 0.5s linear;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 35%;
+  color: white;
+  width: 100px;
+  height: 200px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0px;
+  border: none;
+  border-top-right-radius: 110px;
+  border-bottom-right-radius: 110px;
+  text-align: start;
+  font-size: 45px;
+}
+
+.prev:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.next {
+  right: 0px;
+  border: none;
+  border-top-left-radius: 110px;
+  border-bottom-left-radius: 110px;
+  text-align: end;
+  font-size: 45px;
+}
+
+.next:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes click {
+  0% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.prev:active,
+.next:active {
+  animation: click 0.1s linear;
+}
+
+.dots-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 10px;
+}
+
+.passive {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+}
+
+.active {
+  background-color: white;
+}
+
+.active:hover,
+.passive:hover {
+  cursor: pointer;
+}
